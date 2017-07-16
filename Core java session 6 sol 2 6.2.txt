@@ -1,0 +1,61 @@
+package practiceProg;
+
+import java.util.Scanner;
+
+public class NewThread1 implements Runnable
+{
+
+	boolean isPrime = true;
+	
+	public void run()
+	   {
+		@SuppressWarnings("resource")
+		Scanner sc = new Scanner(System.in);  //Declaring Scanner variable to take input from user
+		 
+        System.out.println("Enter any number");
+
+        int a = sc.nextInt();         //Taking input from user
+        
+        
+
+	     try
+	     {
+	    	 for(int i=2;i<=a/2;i++)//to check the entered number for prime
+	    		{
+	    	           int temp = a%i;
+	    		   if(temp==0)
+	    		   {
+	    		      isPrime=false;
+	    		      break;
+	    		   }
+	    		}
+	    	//If isPrime is true then the number is prime else not
+	    		if(isPrime)
+	    		   System.out.println(a + " is a Prime Number");
+	    		else
+	    		   System.out.println(a + " is not a Prime Number");
+	    	   
+	     }
+	     catch(Exception e)
+	     {
+	        
+	     }
+	     
+	   }
+
+}
+
+
+
+package practiceProg;
+
+
+class Perfect 
+{
+	static NewThread1 ob = new NewThread1();
+	
+	public static void main(String[] args) {
+		ob.run();//calling method of class NewThread1
+	}
+  
+}
